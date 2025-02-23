@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --bs-body-font-family: 'Inter', sans-serif;
+    --bs-body-font-size: 1.1rem;
+
+    /* Neutral, modern color palette */
+    --primary-color: #6c757d; /* Soft grayish-blue */
+    --secondary-color: #adb5bd; /* Muted soft gray */
+    --background-color: #e1e9f1; /* Light neutral background */
+    --container-bg: #ffffff; /* White background for form sections */
+    --border-color: #dee2e6; /* Subtle border */
+    --text-color: #343a40; /* Deep neutral for readability */
+    --button-color: #495057; /* Darker neutral for buttons */
+    --button-hover: #343a40; /* Slightly darker for hover effect */
+    --error-bg: #f8d7da; /* Soft muted red for error messages */
+    --error-text: #721c24; /* Dark red text for contrast */
+    --valid-text: #155724; /* Dark green for validation */
+}
+
+body {
+    min-height: 100vh;
+    font-family: var(--bs-body-font-family);
+    font-weight: 400;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+/* Main App container */
+.App {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1rem;
+}
+
+/* Section container */
+section {
+    width: 100%;
+    max-width: 420px;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: flex-start; */
+    padding: 1.5rem;
+    background-color: var(--container-bg);
+    border-radius: 0.5rem;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-color);
+}
+
+/* Form Elements */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+input[type="text"],
+input[type="password"],
+textarea {
+    font-size: 1rem;
+    padding: 0.75rem;
+    border-radius: 0.375rem;
+    font-family: inherit;
+    border: 1px solid var(--border-color);
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* Button */
+button {
+    padding: 0.75rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    background-color: var(--button-color);
+    color: white;
+    border: none;
+    transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+    background-color: var(--button-hover);
+}
+
+/* Instructions */
+.instructions {
+    font-size: 0.875rem;
+    border-radius: 0.375rem;
+    background: var(--secondary-color);
+    color: var(--text-color);
+    padding: 0.5rem;
+    position: relative;
+    bottom: -10px;
+}
+
+/* Error Message */
+.errmsg {
+    background-color: var(--error-bg);
+    color: var(--error-text);
+    font-weight: bold;
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+    border-radius: 0.375rem;
+    border: 1px solid var(--error-text);
+}
+
+/* Accessibility and Visibility Helpers */
+.offscreen {
+    position: absolute;
+    left: -9999px;
+}
+
+.hide {
+    display: none;
+}
+
+/* Valid and Invalid Input States */
+.valid {
+    color: var(--valid-text);
+    margin-left: 0.25rem;
+}
+
+.invalid {
+    color: var(--error-text);
+    margin-left: 0.25rem;
+}
+
+/* Additional Utilities */
+.flex-grow {
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
