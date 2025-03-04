@@ -5,6 +5,7 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import axios from '../api/axios';
 const LOGIN_URL = '/api/auth/login';
 
+// TODO investigate the password being set in the auth context, remove if not needed
 const Login = () => {
     const { setAuth } = useAuth();
 
@@ -33,26 +34,25 @@ const Login = () => {
         try {
             const response = await axios.post(
                 LOGIN_URL,
-                null,
+                {
+                    username: user,
+                    password: pwd
+                },
                 {
                     headers: { 'Content-Type': 'application/json' },
                     withCredentials: true,
-                    params: {
-                        username: user,
-                        password: pwd
-                    }
                 }
             );
             console.log(JSON.stringify(response?.data));
-            //console.log(JSON.stringify(response));
-            // const accessToken = response?.data?.accessToken;
-            const roles = response?.data?.roles;
-            console.log(`BURGER --- ${JSON.stringify(response.data)}`);
-            console.log(`PINEAPPLE --- ${JSON.stringify(response.data.roles)}`);
-            setAuth({ user, pwd, roles });
+
+            // Frontend will need the roles, and cannot access them from the cookie
+            const userResponse = await axios.get("/api/auth/me", { withCredentials: true });
+            setAuth({ user, pwd, roles: userResponse.data.roles });
+
+            // Reset the form
             setUser('');
             setPwd('');
-            console.log(`TACO i'm from ${from} send me there!`);
+
             navigate(from, { replace: true });
         } catch (err) {
             if (!err?.response) {

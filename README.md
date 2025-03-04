@@ -1,3 +1,7 @@
+# PIN
+
+Working on integration. Reg is good, login is almost there, just need to get the front end to read and use the roles form the /me endpoint
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
