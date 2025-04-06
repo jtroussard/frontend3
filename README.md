@@ -1,6 +1,21 @@
+# Run it
+
+**1**
+`npm run build`
+
+**2**
+Log into the firebase cli
+
+**3**
+Make sure firebase.json and .firebaserc are set up
+
+**4**
+`firebase deploy`
+
+
 # PIN
 
-Working on integration. Reg is good, login is almost there, just need to get the front end to read and use the roles form the /me endpoint
+
 
 # React + Vite
 

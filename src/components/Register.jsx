@@ -1,15 +1,16 @@
 import { useRef, useState, useEffect } from "react";
 import { faCheck, faTimes, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import axios from '../api/axios';
+import { useAxios } from "../context/AxiosContext";
 import { Link } from "react-router-dom";
 import { REGEX_PATTERNS, VALIDATION_HINTS } from "../utils/validationRules";
 
-const REGISTER_URL = '/api/user/register';
+const REGISTER_URL = '/user/register';
 
 const Register = () => {
     const userRef = useRef();
     const errRef = useRef();
+    const axios = useAxios();
 
     const [user, setUser] = useState('');
     const [validName, setValidName] = useState(false);

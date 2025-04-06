@@ -1,0 +1,8 @@
+{
+  "local": {
+    "API_BASE_URL": "http://localhost:8080/api"
+  },
+  "dev": {
+    "API_BASE_URL": "https://backend3-service-231132905887.us-central1.run.app/api"
+  }
+}

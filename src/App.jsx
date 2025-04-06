@@ -16,10 +16,11 @@ import Missing from './components/Missing';
 
 import { Routes, Route } from 'react-router-dom';
 
+// TODO refactor to use role codes instead of role names to obfuscate the roles from the client
 const ROLES = {
-  'User': 2001,
+  'User': 'ROLE_USER',
   'Technician': 1984,
-  'Supervisor': 5150,
+  'Supervisor': 'ROLE_SUPERVISOR',
   'Admin': 1337
 }
 

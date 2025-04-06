@@ -1,13 +1,14 @@
 import { useRef, useState, useEffect } from 'react';
 import useAuth from '../hooks/useAuth';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { useAxios } from '../context/AxiosContext';
 
-import axios from '../api/axios';
-const LOGIN_URL = '/api/auth/login';
+const LOGIN_URL = '/auth/login';
 
 // TODO investigate the password being set in the auth context, remove if not needed
 const Login = () => {
     const { setAuth } = useAuth();
+    const axios = useAxios();
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -46,7 +47,7 @@ const Login = () => {
             console.log(JSON.stringify(response?.data));
 
             // Frontend will need the roles, and cannot access them from the cookie
-            const userResponse = await axios.get("/api/auth/me", { withCredentials: true });
+            const userResponse = await axios.get("/auth/me", { withCredentials: true });
             setAuth({ user, pwd, roles: userResponse.data.roles });
 
             // Reset the form
